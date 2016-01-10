@@ -1,6 +1,6 @@
 import matplotlib as mpl
 import numpy as np
-def cmviz(gbar, p, E, V, ax, offset = 0, label = True):
+def msdiagram(gbar, p, E, V, ax, offset = 0):
     #TODO: more colors
     colors = ['b','r','g']
     #gp as fraction of total gbar
@@ -29,23 +29,24 @@ def cmviz(gbar, p, E, V, ax, offset = 0, label = True):
         e = E[i]
         #set radial bounds
         if V > E:
-            rmin = sqrt(V)
-            rmax = sqrt(e)
+            rmin = np.sqrt(V)
+            rmax = np.sqrt(e)
 
         else:
-            rmin = sqrt(e)
-            rmax = sqrt(V)
+            rmin = np.sqrt(e)
+            rmax = np.sqrt(V)
 
-        scale = sqrt(V)
+        scale = np.sqrt(V)
         r_pt = rmax - rmin
         #plot
         ax.bar(left, scale, width = width, bottom = 0, color = 'white',
                 edgecolor = 'black', linewidth = 1)
         ax.bar(openleft, r_pt, width = openwidth, bottom = rmin,
                 color = colors[i], linewidth = 0)
-        ax.set_yticks([])
-        ax.set_xticks([])
-        ax.spines['polar'].set_visable(False)
+    ax.set_yticks([])
+    ax.set_xticks([])
+    ax.spines['polar'].set_visible(False)
+    return ax
 #TODO: automate labeling of figures
         #if label == True:
         #    ax.text(center, scale*
