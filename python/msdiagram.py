@@ -1,5 +1,9 @@
 import matplotlib as mpl
 import numpy as np
+
+#All input values should be floats
+#Membrane state diagram as per Law and Levin, 2015
+#and described in Law, Levin, and Jones (in preparation)
 def msdiagram(gbar, p, E, V, ax, offset = 0):
     #TODO: more colors
     colors = ['b','r','g']
@@ -47,6 +51,18 @@ def msdiagram(gbar, p, E, V, ax, offset = 0):
     ax.set_xticks([])
     ax.spines['polar'].set_visible(False)
     return ax
+
+if __name__ == '__main__':
+    from matplotlib import pyplot
+    gbar = [10., 20.]
+    p = [0.8, 0.4]
+    E = [50., -50.]
+    V = 0.
+    offset = 10.
+    fig = pyplot.figure()
+    ax = fig.add_subplot(111, projection='polar')
+    ax = msdiagram(gbar, p, E, V, ax, offset)
+    pyplot.show()
 #TODO: automate labeling of figures
         #if label == True:
         #    ax.text(center, scale*
