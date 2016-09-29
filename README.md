@@ -2,7 +2,7 @@
 
 ### What is this repository for? ###
 
-* msdiagram generates membrane state diagrams (Law and Levin (2015), Law, Levin, and Jones (in prep.)) given membrane state variables
+* msdiagram generates membrane state diagrams (Law and Levin (2015), Law and Jones (2016) given membrane state variables
 
 * Version 1.3
 
