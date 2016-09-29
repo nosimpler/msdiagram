@@ -1,12 +1,14 @@
 import matplotlib as mpl
 import numpy as np
-
+import matplotlib.pyplot as plt
 #All input values should be floats
 #Membrane state diagram as per Law and Levin, 2015
-#and described in Law, Levin, and Jones (in preparation)
-def msdiagram(gbar, p, E, V, ax, offset = 0):
-    #TODO: more colors
-    colors = ['b','r','g']
+#and described in Law and Jones (2016, bioRxiv)
+def msdiagram(gbar, p, E, V, ax, offset = 0, colors = None):
+    
+    if colors == None:
+        n_currents = len(gbar)
+        colors = plt.cm.Set1(np.linspace(0,1,n_currents))
     #gp as fraction of total gbar
     gp = gbar/np.sum(gbar)
     #get boundary angles for gbar
